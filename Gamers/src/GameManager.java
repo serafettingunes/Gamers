@@ -1,18 +1,20 @@
 
-public abstract class GameManager extends BaseClass2 {
+public  class GameManager extends BaseClass2 {
 
 	@Override
-	public  abstract  void add(Game game);
+	public   void add(Game game) {
+		System.out.println(game.get_gameName()+" Eklendi...");
+	}
 	
 	@Override
 	public void update(Game game) {
-		// TODO Auto-generated method stub
+		System.out.println(game.get_gameName()+" Güncellendi...");
 		
 	}
 
 	@Override
 	public void delete(Game game) {
-		// TODO Auto-generated method stub
+		System.out.println(game.get_gameName()+" Silindi...");
 		
 	}
 
