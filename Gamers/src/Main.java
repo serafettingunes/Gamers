@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 public class Main {
 
 	public static void main(String[] args) {
-		Long tc = Long.valueOf("40040040040");
+		Long tc = Long.valueOf("47080467668");
 		Gamer gamer1 = new Gamer();
 		try {
 			SimpleDateFormat dt = new SimpleDateFormat("YYYY.MM.dd");
@@ -13,7 +13,7 @@ public class Main {
 
 			java.util.Date d = dt.parse(date);
 			int yil = Integer.parseInt(year.format(d));
-			
+
 			gamer1.set_birtday(yil);
 			gamer1.set_firstName("Þerafettin".toUpperCase());
 			gamer1.set_lastName("Güneþ".toUpperCase());
@@ -21,31 +21,33 @@ public class Main {
 
 			BaseClass baseClass = new GamerManager(new CheckIn());
 			baseClass.add(gamer1);
-			
 
 		} catch (Exception e) {
 			System.out.println(" hata");
 		}
-		
+
 		System.out.println("-------------------------");
-		Game game=new Game(1, " eFootball PES 2021 SEASON UPDATE ");
-		Game game2=new Game(2, " EA SPORTS™ FIFA 21 ");
-		Game game3=new Game(3, " Cyberpunk 2077 ");
-		Game game4=new Game(4, " Assassins Creed Valhalla ");
-		
-		Game[] gameDizi= {game,game2,game3,game4};
-		
-		
-		GameManager gameManager=new GameManager();
+		Game game = new Game(1, " eFootball PES 2021 SEASON UPDATE ");
+		Game game2 = new Game(2, " EA SPORTS™ FIFA 21 ");
+		Game game3 = new Game(3, " Cyberpunk 2077 ");
+		Game game4 = new Game(4, " Assassins Creed Valhalla ");
+
+		Game[] gameDizi = { game, game2, game3, game4 };
+
+		GameManager gameManager = new GameManager();
 		for (Game games : gameDizi) {
 			gameManager.add(games);
 		}
-		
+
 		System.out.println("-------------------------");
-		
-		SatisManager satisManager=new SatisManager();
-		satisManager.sat(gamer1, gameDizi);
-		
+
+		if (new CheckIn().checkIn(gamer1)) {
+			SatisManager satisManager = new SatisManager();
+			satisManager.sat(gamer1, gameDizi);
+		} else {
+			System.out.println("Kullanýcý kaydedilmediði için oyun satýn alamaz!!!");
+		}
+
 	}
 
 }
