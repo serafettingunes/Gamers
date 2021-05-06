@@ -5,6 +5,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		Long tc = Long.valueOf("47080467668");
+		boolean kampanya=true;
+		
 		Gamer gamer1 = new Gamer();
 		try {
 			SimpleDateFormat dt = new SimpleDateFormat("YYYY.MM.dd");
@@ -15,7 +17,7 @@ public class Main {
 			int yil = Integer.parseInt(year.format(d));
 
 			gamer1.set_birtday(yil);
-			gamer1.set_firstName("Þerafettin".toUpperCase());
+			gamer1.set_firstName("þerafettin".toUpperCase());
 			gamer1.set_lastName("Güneþ".toUpperCase());
 			gamer1.set_natonalityNumber(tc);
 
@@ -40,10 +42,18 @@ public class Main {
 		}
 
 		System.out.println("-------------------------");
-
+		SatisManager satisManager = new SatisManager();
 		if (new CheckIn().checkIn(gamer1)) {
-			SatisManager satisManager = new SatisManager();
-			satisManager.sat(gamer1, gameDizi);
+			if (kampanya) {
+				satisManager.kampanyaliSat(gamer1, gameDizi);
+				
+			}
+			else {
+				satisManager.sat(gamer1, gameDizi);
+			}
+			
+			
+			
 		} else {
 			System.out.println("Kullanýcý kaydedilmediði için oyun satýn alamaz!!!");
 		}
