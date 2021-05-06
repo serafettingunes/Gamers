@@ -5,16 +5,17 @@ public class SatisManager implements SatisInterface {
 	public void sat(Gamer gamer, Game[] game) {
 		
 		for (Game games : game) {
-			System.out.println(gamer.get_firstName()+ " "+ gamer.get_lastName()+  games.get_gameName()+"Oyununu satýn aldý...");
+			System.out.println(gamer.get_firstName()+ " "+ gamer.get_lastName()+  games.get_gameName()+" "+games.getFiyat()+"TL Oyununu satýn aldý...");
 		}
 		
 		
 	}
 
+	
 	@Override
-	public void kampanyaliSat(Gamer gamer, Game[] game) {
+	public void kampanyaliSat(Gamer gamer, Game[] game ,Kampanya kampanya) {
 		for (Game games : game) {
-			System.out.println(gamer.get_firstName()+ " "+gamer.get_lastName()+" "+games.get_gameName()+" oyununu indirimli aldý...");
+			System.out.println(gamer.get_firstName()+ " "+gamer.get_lastName()+" "+games.get_gameName()+" " +(games.getFiyat()*kampanya.getIndirimOrani()/100)+"TL  Oyununu satýn aldý...");
 		}
 		
 	}

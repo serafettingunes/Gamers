@@ -3,7 +3,7 @@ public  class GameManager extends BaseClass2 {
 
 	@Override
 	public   void add(Game game) {
-		System.out.println(game.get_gameName()+" Eklendi...");
+		System.out.println(game.get_gameName()+" "+game.getFiyat()+"TL Eklendi...");
 	}
 	
 	@Override

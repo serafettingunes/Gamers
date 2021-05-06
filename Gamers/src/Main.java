@@ -29,11 +29,17 @@ public class Main {
 		}
 
 		System.out.println("-------------------------");
-		Game game = new Game(1, " eFootball PES 2021 SEASON UPDATE ");
-		Game game2 = new Game(2, " EA SPORTS™ FIFA 21 ");
-		Game game3 = new Game(3, " Cyberpunk 2077 ");
-		Game game4 = new Game(4, " Assassins Creed Valhalla ");
+		Game game = new Game(1, " eFootball PES 2021 SEASON UPDATE ",100);
+		Game game2 = new Game(2, " EA SPORTS™ FIFA 21 ",419);
+		Game game3 = new Game(3, " Cyberpunk 2077 ",279);
+		Game game4 = new Game(4, " Assassins Creed Valhalla ",500);
 
+		
+		Kampanya kampanya1=new Kampanya("%90 Ýndirim ", 90);
+		
+		
+		
+		
 		Game[] gameDizi = { game, game2, game3, game4 };
 
 		GameManager gameManager = new GameManager();
@@ -45,7 +51,7 @@ public class Main {
 		SatisManager satisManager = new SatisManager();
 		if (new CheckIn().checkIn(gamer1)) {
 			if (kampanya) {
-				satisManager.kampanyaliSat(gamer1, gameDizi);
+				satisManager.kampanyaliSat(gamer1, gameDizi,kampanya1);
 				
 			}
 			else {
